@@ -1,0 +1,139 @@
+<!doctype html>
+<title>Hello from Flask</title>
+    {% if person %}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .username {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+        }
+
+        .marquee-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            color: white;
+            font-size: 1.5em;
+            font-weight: 500;
+            padding: 0 50px;
+            display: inline-block;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle1 {
+            width: 100px;
+            height: 100px;
+            top: -50px;
+            left: -50px;
+        }
+
+        .circle2 {
+            width: 150px;
+            height: 150px;
+            bottom: -75px;
+            right: -75px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+            }
+        }
+    </style>
+     {% endif %}
+<body>
+    {% if not person %}
+    <h1>
+        <form action="/" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br>
+            <input type="submit">
+        </form>
+    </h1>
+
+    {% else %}
+    <div class="decorative-circle circle1"></div>
+    <div class="decorative-circle circle2"></div>
+    
+    <div class="container">
+        <h1>Welcome!</h1>
+        <div class="username">{{ person }}</div>
+        
+        <div class="marquee-container">
+            <div class="marquee">
+                <span class="marquee-content">🎉 SMAN 1 Lumajang ✨ SMAN 1 Lumajang 🌟 SMAN 1 Lumajang 💫 SMAN 1 Lumajang 🎨</span>
+                <span class="marquee-content">🎉 Have a great day! ✨ Keep smiling! 🌟 You're awesome! 💫 Stay positive! 🎨</span>
+            </div>
+        </div>
+    </div>
+
+
+    {% endif %}
+</body>
