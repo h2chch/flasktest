@@ -123,13 +123,16 @@
     <div class="decorative-circle circle2"></div>
     
     <div class="container">
-        <h1>Welcome!</h1>
+        <h1>Sugeng Rawuh</h1>
         <div class="username">{{ person }}</div>
-        
         <div class="marquee-container">
             <div class="marquee">
-                <span class="marquee-content">🎉 SMAN 1 Lumajang ✨ SMAN 1 Lumajang 🌟 SMAN 1 Lumajang 💫 SMAN 1 Lumajang 🎨</span>
-                <span class="marquee-content">🎉 Have a great day! ✨ Keep smiling! 🌟 You're awesome! 💫 Stay positive! 🎨</span>
+                <span class="marquee-content">
+                    {% set data_list = data.split(':') %}
+                    {% for item in data_list %}
+                         ✨ {{ item }}  ✨ 
+                    {% endfor %}
+                </span>
             </div>
         </div>
     </div>
